@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body">
+                <h2 class="account-heading">{{ current_user.username }}</h2>
+                <p class="text-secondary">{{ current_user.email }}</p>
+            </div>
+         </div>
+
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class=form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                <div class="form-group">
+                    {{form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                        {{form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for errors in form.username.errors%}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+
+
+                </div>
+                <div class="form-group">
+                    {{form.email.label(class="form-control-label")}}
+                     {% if form.email.errors %}
+                        {{form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for errors in form.email.errors%}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class = "text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
+            </div>
+        </form>
+
+    </div>
+
+<hr />
+<!-- <button type="button">Upload File</button>-->
+<h2> Download 8-week forecast for all zips </h2>
+<a href="{{ url_for('.download_file') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h2> Download 16-week forecast for all zips </h2>
+<a href="{{ url_for('.download_file2') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h3> Download AMZL DS Forecast </h3>
+<a href="{{ url_for('.download_file3') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h4> Download Cube Forecast </h4>
+<a href="{{ url_for('.download_file6') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h5> Download 2022 Q2 R&O FYP DDU Peak Day Forecast by zip code </h5>
+<a href="{{ url_for('.download_file4') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h6> Download 2022 Q2 R&O FYP Peak Day AMZL Forecast </h6>
+<a href="{{ url_for('.download_file5') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h7> Download Peak Day Canada FSA Forecast </h7>
+<a href="{{ url_for('.download_file7') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h8> Download 2022 Q2 R&O FYP DDU Forecast by zip code </h8>
+<a href="{{ url_for('.download_file8') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<h9> Download 2022 Q2 R&O FYP AMZL SC DS Forecast </h9>
+<a href="{{ url_for('.download_file9') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+<hr />
+
+<h10> Download Canada FSA Carrier Forecast </h9>
+<a href="{{ url_for('.download_file10') }}">Click to Download</a>
+
+<form method="POST" enctype=multipart/form-data>
+
+<hr />
+
+
+
+{% endblock content%}
